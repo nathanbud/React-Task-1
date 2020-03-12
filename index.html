@@ -18,12 +18,23 @@
                 name: "Harry",
                 age: "100"
             }
+
+            handleClick(){
+                console.log("I was clicked");
+            }
+            handleHover(e){
+                console.log("I was hovered at:", e.target, e.pageX);
+            }
             render(){
                 return(
                     <div>
                         <h1>Todo List Soon!</h1>
                         <p>Hi, my name is {this.state.name}. I' am {this.state.age} years old.</p>
+                    
+                        <button onClick={this.handleClick}>Click me</button>
+                        <button onMouseOver={this.handleHover}>Hover me</button>
                     </div>
+                    
                 )
             }
         }
