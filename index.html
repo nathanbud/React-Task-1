@@ -13,18 +13,24 @@
 <body>
     <div id="app"></div>
     <script type="text/babel">
+    import React, {useState} from 'react';
         class App extends React.Component{
             state = {
                 name: "Harry",
                 age: "100"
             }
 
-            handleClick(){
+            handleClick = () => {
                 console.log("I was clicked");
+                this.setState({
+                    name: "Dough"
+                })
             }
             handleHover(e){
                 console.log("I was hovered at:", e.target, e.pageX);
             }
+
+            const [count, setCount] = useState(0);
             render(){
                 return(
                     <div>
@@ -33,6 +39,7 @@
                     
                         <button onClick={this.handleClick}>Click me</button>
                         <button onMouseOver={this.handleHover}>Hover me</button>
+                        <button onClick={setCount = () => {count + 1 }}>{count}</button>
                     </div>
                     
                 )
