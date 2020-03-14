@@ -18,7 +18,11 @@
 
             const [count, setCount] = React.useState(0);
 
-            function handleClick () {
+            function handleClickMinus () {
+                setCount(count - 1 );
+            }
+
+            function handleClickPlus () {
                 setCount(count + 1 );
             }
           
@@ -26,7 +30,8 @@
                     
                     <div>
                     <p> You click {count} times </p>
-                        <button onClick={handleClick}>Click me</button>
+                        <button onClick={handleClickMinus}>Minus</button>
+                        <button onClick={handleClickPlus}>Plus</button>
                     </div>
                     
                 );
