@@ -16,8 +16,10 @@
   
         class App extends React.Component{
             state = {
-                name: "Harry",
-                age: "100"
+                firstname: "",
+                middlename: "",
+                lastname: "",
+                age:""
             }
 
             handleClick = () => {
@@ -32,7 +34,9 @@
 
             handleChange = (e) =>{
                 this.setState({
-                    name: e.target.value,
+                    firstname: e.target.name,
+                    middlename: e.target.name,
+                    lastname: e.target.name,
                     age: 45
                 })
             }
@@ -48,13 +52,15 @@
                 return(
                     <div>
                         <h1>Todo List Soon!</h1>
-                        <p>Hi, my name is {this.state.name}. I' am {this.state.age} years old.</p>
+                        <p>Hi, my name is {this.state.fistname} {this.state.middlename} {this.state.lastname}. I' am {this.state.age} years old.</p>
                     
                         <button onClick={this.handleClick}>Click me</button>
                         <button onMouseOver={this.handleHover}>Hover me</button>
                         
                         <form onSubmit={this.handleSubmit}>
-                            <input type="text" onChange={this.handleChange}/>
+                            <input type="text" name="fname" placeholder="First Name" onChange={this.handleChange}/>
+                            <input type="text" name="mname" placeholder="Middle Name" onChange={this.handleChange}/>
+                            <input type="text" name="lname" placeholder="Last Name" onChange={this.handleChange}/>
                             <button>Submit</button>
                         </form>
                     </div>
