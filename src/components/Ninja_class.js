@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Ninja =({ninjas}) => {
-        //const {ninjas} = props;
+export default class Ninja extends Component{
+    render(){
+
+        const {ninjas} = this.props;
         const ninjaList = ninjas.map(ninja =>{
             return (
-                <div key = {ninja.id}>
+                <div>
                 <p>Name: {ninja.name} </p>
         <p>Age: {ninja.age}</p>
         <p>Belt: {ninja.belt}</p>
@@ -19,4 +21,4 @@ const Ninja =({ninjas}) => {
             
         )
     }
-export default Ninja
+}

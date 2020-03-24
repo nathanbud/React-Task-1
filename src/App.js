@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './forms/Form'
-import Ninja from './components/Ninja';
+import SortNinja from './components/sortNinja';
+import Ninja from './components/sortNinja';
+import AddNinja from './components/Addninja';
 
 
 class App extends Component {
 
   state = {
     ninjas:[
-      {name: "One Piece", age: 12,  belt: "black"},
-      {name: "One Lord", age: 78, belt: "red"},
-      {name: "One Two", age: 45, belt: "green"}
+      {id: 1, name: "One Piece", age: 12,  belt: "black" },
+      {id: 2, name: "One Lord", age: 78, belt: "red"},
+      {id: 3, name: "One Two", age: 45, belt: "green"}
 
     ]
   }
@@ -27,8 +28,11 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <Form/>
+      
+        <AddNinja/>
         <Ninja ninjas ={this.state.ninjas} />
+        <h2>Old Ninja</h2>
+        <SortNinja ninjas ={this.state.ninjas} />
        
       </div>
     );

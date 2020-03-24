@@ -1,17 +1,16 @@
 import React from 'react'
 
-const Ninja =({ninjas}) => {
+const SortNinja =({ninjas}) => {
         //const {ninjas} = props;
         const ninjaList = ninjas.map(ninja =>{
-            return (
+            return ninja.age > 50 ? (  
                 <div key = {ninja.id}>
                 <p>Name: {ninja.name} </p>
         <p>Age: {ninja.age}</p>
         <p>Belt: {ninja.belt}</p>
             </div>
-            )
+            ) : null;
         })
-
         return(
             <div>
                 {ninjaList}
@@ -19,4 +18,4 @@ const Ninja =({ninjas}) => {
             
         )
     }
-export default Ninja
+export default SortNinja
