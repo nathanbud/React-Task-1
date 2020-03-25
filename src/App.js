@@ -1,42 +1,53 @@
 import React, { Component } from 'react';
 import './App.css';
-import SortNinja from './components/sortNinja';
-import Ninja from './components/sortNinja';
-import AddNinja from './components/Addninja';
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
+
 
 
 class App extends Component {
-
   state = {
-    ninjas:[
-      {id: 1, name: "One Piece", age: 12,  belt: "black" },
-      {id: 2, name: "One Lord", age: 78, belt: "red"},
-      {id: 3, name: "One Two", age: 45, belt: "green"}
-
-    ]
+    todos: [
+    { id: 1,
+      task:"Get Milk",
+      description: "Get best milk on earth" },
+    { id: 2,
+      task:"Play",
+      description: "Play basketball"},
+   ]
   }
+
+  addTodo = (newtodo) => {
+    const todos = [...this.state.todos, newtodo];
+    this.setState({
+      todos: todos
+    })
+    console.log(todos);
+  }
+
+  deleteTodo = (id) =>{
+   let todos = this.state.todos.filter(todo =>{
+      return todo.id !==id;
+    })
+
+    this.setState({
+      todos
+    })
+  }
+
   render(){
-    return (
-      <div className="App">
-        <header className="App-header">
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      
-        <AddNinja/>
-        <Ninja ninjas ={this.state.ninjas} />
-        <h2>Old Ninja</h2>
-        <SortNinja ninjas ={this.state.ninjas} />
-       
+    
+    return(
+      <div>
+       <AddTodo addtodo={this.addTodo} />
+        <p>Todos</p>
+       <Todos todos = {this.state.todos} deleteTodo={this.deleteTodo}/>
+
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
+
+  
