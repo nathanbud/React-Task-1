@@ -38,7 +38,7 @@ class App extends Component {
   render(){
     
     return(
-      <div>
+      <div className="container">
        <AddTodo addtodo={this.addTodo} />
         <p>Todos</p>
        <Todos todos = {this.state.todos} deleteTodo={this.deleteTodo}/>
